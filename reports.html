@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Driver Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reports.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">Driver Portal</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="movements.html">Movements</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="fuel.html">Fuel</a></li>
+                <li><a href="reports.html" class="active">Reports</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Reports</h1>
+                <div class="user-info">
+                    <span class="driver-name">John Doe</span>
+                    <img src="assets/profile.png" alt="Profile" class="profile-pic">
+                </div>
+            </header>
+
+            <div class="reports-container">
+                <div class="report-filters">
+                    <div class="filter-group">
+                        <label for="reportType">Report Type</label>
+                        <select id="reportType">
+                            <option value="movements">Movements</option>
+                            <option value="fuel">Fuel Consumption</option>
+                            <option value="issues">Vehicle Issues</option>
+                            <option value="performance">Performance</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="timePeriod">Time Period</label>
+                        <select id="timePeriod">
+                            <option value="week">Last Week</option>
+                            <option value="month">Last Month</option>
+                            <option value="quarter">Last Quarter</option>
+                            <option value="year">Last Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="filter-group custom-range" style="display: none;">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate">
+                        <label for="endDate">End Date</label>
+                        <input type="date" id="endDate">
+                    </div>
+                    <button class="generate-btn">Generate Report</button>
+                </div>
+
+                <div class="report-content">
+                    <div class="report-summary">
+                        <h2>Report Summary</h2>
+                        <div class="summary-cards">
+                            <div class="summary-card">
+                                <h3>Total Distance</h3>
+                                <p class="stat-value">1,245 km</p>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Fuel Efficiency</h3>
+                                <p class="stat-value">8.2 L/100km</p>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Issues Reported</h3>
+                                <p class="stat-value">3</p>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Average Speed</h3>
+                                <p class="stat-value">65 km/h</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="report-charts">
+                        <div class="chart-container">
+                            <h3>Distance Over Time</h3>
+                            <canvas id="distanceChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Fuel Consumption</h3>
+                            <canvas id="fuelChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="report-details">
+                        <h2>Detailed Report</h2>
+                        <div class="report-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Details</th>
+                                        <th>Value</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reportTableBody">
+                                    <!-- Report data will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-actions">
+                    <button class="export-btn">Export as PDF</button>
+                    <button class="export-btn">Export as CSV</button>
+                    <button class="print-btn">Print Report</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html> 

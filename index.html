@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-truck"></i>
+                <span>Driver Portal</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#movements"><i class="fas fa-route"></i> Movements</a></li>
+                <li><a href="#issues"><i class="fas fa-exclamation-triangle"></i> Issues</a></li>
+                <li><a href="#fuel"><i class="fas fa-gas-pump"></i> Fuel</a></li>
+                <li><a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="driver-name">John Doe</span>
+                        <img src="assets/profile.png" alt="Profile" class="profile-pic">
+                    </div>
+                </div>
+            </header>
+
+            <section id="dashboard" class="dashboard-section active-section">
+                <h1>Dashboard Overview</h1>
+                <div class="stats-grid">
+                    <div class="stats-card">
+                        <div class="card-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Trips</h3>
+                            <p class="stat-value">24</p>
+                            <p class="stat-change positive">+12% from last month</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="card-icon">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Fuel Consumption</h3>
+                            <p class="stat-value">156L</p>
+                            <p class="stat-change negative">-5% from last month</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="card-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Active Issues</h3>
+                            <p class="stat-value">2</p>
+                            <p class="stat-change neutral">No change</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="card-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Vehicle Status</h3>
+                            <p class="stat-value">Active</p>
+                            <p class="stat-change positive">All systems normal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="recent-activities">
+                        <div class="section-header">
+                            <h2>Recent Activities</h2>
+                            <button class="view-all">View All</button>
+                        </div>
+                        <div class="activity-list">
+                            <!-- Activities will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <h2>Current Location</h2>
+                        <div class="map-placeholder">
+                            <!-- Map will be integrated here -->
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="movements" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Movements</h1>
+                    <button class="primary-button">Add New Movement</button>
+                </div>
+                <div class="movements-container">
+                    <div class="movements-filters">
+                        <div class="filter-group">
+                            <label>Date Range</label>
+                            <div class="date-range">
+                                <input type="date" class="date-input">
+                                <span>to</span>
+                                <input type="date" class="date-input">
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label>Status</label>
+                            <select class="status-select">
+                                <option value="all">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="movements-list">
+                        <div class="movement-card">
+                            <div class="movement-header">
+                                <h3>Trip #1234</h3>
+                                <span class="status-badge completed">Completed</span>
+                            </div>
+                            <div class="movement-details">
+                                <div class="route">
+                                    <div class="location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>New York, NY</span>
+                                    </div>
+                                    <div class="route-line"></div>
+                                    <div class="location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Boston, MA</span>
+                                    </div>
+                                </div>
+                                <div class="movement-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Duration: 4h 30m</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-road"></i>
+                                        <span>Distance: 215 miles</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-gas-pump"></i>
+                                        <span>Fuel Used: 25L</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More movement cards will be added dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="issues" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Issues</h1>
+                    <button class="primary-button">Report New Issue</button>
+                </div>
+                <div class="issues-container">
+                    <div class="issues-summary">
+                        <div class="summary-card">
+                            <h3>Active Issues</h3>
+                            <p class="count">2</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Resolved Issues</h3>
+                            <p class="count">15</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Average Resolution Time</h3>
+                            <p class="count">2.5 days</p>
+                        </div>
+                    </div>
+                    <div class="issues-list">
+                        <div class="issue-card">
+                            <div class="issue-header">
+                                <h3>Check Engine Light</h3>
+                                <span class="priority high">High Priority</span>
+                            </div>
+                            <p class="issue-description">Engine warning light is on. Vehicle performance seems normal but requires inspection.</p>
+                            <div class="issue-footer">
+                                <div class="issue-meta">
+                                    <span class="date">Reported: 2 days ago</span>
+                                    <span class="status pending">Pending</span>
+                                </div>
+                                <button class="action-button">View Details</button>
+                            </div>
+                        </div>
+                        <!-- More issue cards will be added dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="fuel" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Fuel Management</h1>
+                    <button class="primary-button">Add Fuel Record</button>
+                </div>
+                <div class="fuel-container">
+                    <div class="fuel-summary">
+                        <div class="fuel-chart">
+                            <!-- Chart will be added here -->
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="fuel-stats">
+                            <div class="stat-card">
+                                <h3>Current Fuel Level</h3>
+                                <p class="value">75%</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Average Consumption</h3>
+                                <p class="value">8.5L/100km</p>
+                                <span class="trend positive">-2% from last month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fuel-history">
+                        <h2>Recent Fuel Records</h2>
+                        <div class="history-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Station</th>
+                                        <th>Amount</th>
+                                        <th>Price/Liter</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2024-03-15</td>
+                                        <td>Shell Station</td>
+                                        <td>50L</td>
+                                        <td>$1.25</td>
+                                        <td>$62.50</td>
+                                    </tr>
+                                    <!-- More rows will be added dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="reports" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Reports</h1>
+                    <button class="primary-button">Generate Report</button>
+                </div>
+                <div class="reports-container">
+                    <div class="reports-filters">
+                        <div class="filter-group">
+                            <label>Report Type</label>
+                            <select class="report-type">
+                                <option value="all">All Reports</option>
+                                <option value="trips">Trips</option>
+                                <option value="fuel">Fuel</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Time Period</label>
+                            <select class="time-period">
+                                <option value="week">Last Week</option>
+                                <option value="month">Last Month</option>
+                                <option value="quarter">Last Quarter</option>
+                                <option value="year">Last Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <h3>Trip Report</h3>
+                            <p>Summary of all trips completed in the selected period</p>
+                            <button class="secondary-button">View Report</button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-gas-pump"></i>
+                            </div>
+                            <h3>Fuel Report</h3>
+                            <p>Detailed analysis of fuel consumption and costs</p>
+                            <button class="secondary-button">View Report</button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Maintenance Report</h3>
+                            <p>Overview of vehicle maintenance and repairs</p>
+                            <button class="secondary-button">View Report</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="profile" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Profile</h1>
+                    <button class="primary-button">Edit Profile</button>
+                </div>
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-image">
+                            <img src="assets/profile.png" alt="Profile Picture">
+                            <button class="edit-photo"><i class="fas fa-camera"></i></button>
+                        </div>
+                        <div class="profile-info">
+                            <h2>John Doe</h2>
+                            <p class="role">Professional Driver</p>
+                            <div class="contact-info">
+                                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                                <p><i class="fas fa-envelope"></i> john.doe@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <div class="detail-section">
+                            <h3>Personal Information</h3>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <label>Driver ID</label>
+                                    <p>DRV-12345</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>License Number</label>
+                                    <p>DL-987654321</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>License Expiry</label>
+                                    <p>2025-12-31</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Years of Experience</label>
+                                    <p>8 years</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h3>Vehicle Information</h3>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <label>Vehicle Type</label>
+                                    <p>Heavy Duty Truck</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Vehicle ID</label>
+                                    <p>TRK-54321</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Last Maintenance</label>
+                                    <p>2024-02-15</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Next Maintenance</label>
+                                    <p>2024-05-15</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html> 

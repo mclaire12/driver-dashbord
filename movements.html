@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movements - Driver Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/movements.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">Driver Portal</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="movements.html" class="active">Movements</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="fuel.html">Fuel</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Vehicle Movements</h1>
+                <div class="user-info">
+                    <span class="driver-name">John Doe</span>
+                    <img src="assets/profile.png" alt="Profile" class="profile-pic">
+                </div>
+            </header>
+
+            <div class="movements-container">
+                <div class="movement-form">
+                    <h2>Log New Movement</h2>
+                    <form id="movementForm">
+                        <div class="form-group">
+                            <label for="startLocation">Start Location</label>
+                            <input type="text" id="startLocation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endLocation">End Location</label>
+                            <input type="text" id="endLocation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="startTime">Start Time</label>
+                            <input type="datetime-local" id="startTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime">End Time</label>
+                            <input type="datetime-local" id="endTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="distance">Distance (km)</label>
+                            <input type="number" id="distance" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Log Movement</button>
+                    </form>
+                </div>
+
+                <div class="movements-list">
+                    <h2>Recent Movements</h2>
+                    <div class="movement-filters">
+                        <select id="dateFilter">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                        <input type="text" id="searchMovement" placeholder="Search movements...">
+                    </div>
+                    <div class="movements-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Route</th>
+                                    <th>Distance</th>
+                                    <th>Duration</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="movementsTableBody">
+                                <!-- Movements will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/movements.js"></script>
+</body>
+</html> 
